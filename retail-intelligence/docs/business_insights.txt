@@ -1,0 +1,41 @@
+
+RETAIL SALES & CUSTOMER INTELLIGENCE
+====================================
+
+Total Revenue: £10,642,110.80
+Total Orders: 19,960
+Identified Customers: 4,338
+Average Order Value: £533.17
+
+Best Revenue Month: 2011-11
+Top Country: United Kingdom
+Top Product: REGENCY CAKESTAND 3 TIER
+
+Repeat Customer Rate: 65.58%
+
+CUSTOMER SEGMENTS
+-----------------
+Segment
+Regular Customers     1238
+Inactive               994
+Champions              942
+Loyal Customers        508
+At Risk High Value     346
+New or Promising       310
+
+BUSINESS RECOMMENDATIONS
+------------------------
+1. Prepare inventory for high-revenue months.
+2. Monitor best-performing products.
+3. Reward Champions with loyalty offers.
+4. Re-engage At Risk High Value customers.
+5. Investigate unusually large transactions.
+
+ANALYSIS LIMITATIONS
+--------------------
+- Revenue uses positive, non-cancelled sales.
+- Customer analysis excludes missing CustomerID.
+- RFM scores are approximate quintiles.
+- Tied values may receive different scores.
+- Segments are heuristic, not validated labels.
+- Unusual transactions require investigation.

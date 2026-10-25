@@ -1,133 +1,196 @@
+
 # Retail Sales & Customer Intelligence
 
-An interview-ready UK retail analytics project, built one lesson at a time.
+### End-to-End Data Analytics Portfolio Project
 
-**Project owner:** Bogadhi Teja Prakash (Teja)  
-**Current stage:** Lesson 1 — understand the data and calculate sales revenue.
+A retail data analytics project using Python, Pandas,
+Matplotlib, and SQL to understand sales performance,
+customer purchasing behaviour, and business opportunities.
 
-## The business question
+## Project Overview
 
-Imagine you are a junior data analyst for an online gift retailer. Your manager asks:
+This project analyses the UCI Online Retail dataset,
+containing 541,909 transaction records.
 
-1. How much revenue did we generate from completed sales?
-2. Which products sold the most?
-3. How are sales changing month by month?
-4. How many identified customers bought from us?
-5. What opportunities should we investigate next?
+The goal is to answer important business questions:
 
-The first release includes Python analysis, SQLite and a simple Streamlit dashboard. Future lessons will add advanced SQL, segmentation, Power BI, data validation, GitHub and deployment.
+- How much revenue does the business generate?
+- Which months have the highest sales?
+- Which countries contribute the most revenue?
+- What are the best-performing products?
+- How frequently do customers purchase?
+- Which customers are valuable or at risk?
 
-## Dataset: practice first, real data next
+## Technologies Used
 
-- `data/sample/retail_sample.csv` is **fictional practice data**, included to make Lesson 1 run immediately. Never present its results as genuine business performance.
-- Our genuine data will be UCI's **Online Retail** dataset: transactions at a UK-based online retailer, December 2010–December 2011 (541,909 rows). It is **historical**, not real-time.
-- Official source and download: https://archive.ics.uci.edu/dataset/352/online%2Bretail
-- Citation: Chen, D. (2015). *Online Retail* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33
-- Dataset licence: CC BY 4.0. Attribute the source when publishing visualisations or derived data.
+- Python 3
+- Pandas
+- NumPy
+- Matplotlib
+- SQLite / SQL
+- VS Code
+- Excel
 
-### Download the real data (Lesson 2)
+## Key Performance Indicators
 
-1. Open the UCI link above and click **Download**.
-2. If the download is zipped, extract it.
-3. Put `Online Retail.xlsx` in `data/raw/` (create that folder if needed).
-4. Run the same code again. The dashboard and SQLite script will use the real Excel file automatically.
+| Metric | Result |
+|---|---:|
+| Total Revenue | £10,642,110.80 |
+| Total Orders | 19,960 |
+| Identified Customers | 4,338 |
+| Average Order Value | £533.17 |
+| Repeat Customer Rate | 65.58% |
 
-For GitHub, do not commit a raw file with customer identifiers; this starter's `.gitignore` excludes raw Excel files. We will publish safe aggregated outputs and clearly document the source.
+## Executive Dashboard
 
-## Your folder structure
+![Retail Intelligence Dashboard](docs/retail_dashboard.png)
+
+The dashboard includes:
+
+1. Monthly revenue trends
+2. Top 10 countries by revenue
+3. Top 10 products by revenue
+4. Customer segmentation
+
+## Customer Segmentation Using RFM
+
+RFM stands for:
+
+- Recency: Days since the last purchase
+- Frequency: Number of unique orders
+- Monetary: Total customer spending
+
+Customers are assigned scores from 1 to 5
+for each metric.
+
+### Segmentation Results
+
+| Customer Segment | Customers |
+|---|---:|
+| Regular Customers | 1,238 |
+| Inactive | 994 |
+| Champions | 942 |
+| Loyal Customers | 508 |
+| At Risk High Value | 346 |
+| New or Promising | 310 |
+
+These segments use rule-based RFM scoring
+and should be treated as analytical estimates.
+
+## Key Business Findings
+
+### 1. Revenue Performance
+
+Total sales revenue reached £10.64 million.
+
+November 2011 generated the highest monthly
+revenue at approximately £1.50 million.
+
+Revenue increased by 30.63% compared with
+October 2011.
+
+Note: December 2011 is an incomplete month
+in the dataset and should not be compared
+directly with full months.
+
+### 2. Country Performance
+
+The United Kingdom contributed the largest
+share of total revenue.
+
+### 3. Product Performance
+
+REGENCY CAKESTAND 3 TIER was the highest-revenue
+product after excluding postage charges.
+
+An unusually large PAPER CRAFT transaction
+was identified and examined separately.
+
+### 4. Customer Behaviour
+
+65.58% of identified customers placed more
+than one order.
+
+942 customers were classified as Champions.
+
+346 customers were classified as At Risk
+High Value.
+
+## Business Recommendations
+
+1. Plan inventory around seasonal demand.
+2. Prioritise high-performing products.
+3. Reward Champion customers with loyalty offers.
+4. Create re-engagement campaigns for at-risk customers.
+5. Investigate unusual large transactions.
+6. Track customer segments over time.
+
+## Data Cleaning
+
+The analysis includes:
+
+- Removing 5,268 duplicate rows
+- Excluding cancelled transactions
+- Excluding nonpositive quantities and prices
+- Calculating transaction revenue
+- Handling missing CustomerID values
+- Investigating unusual transactions
+
+## Project Structure
 
 ```text
 retail-intelligence/
-├── app.py                     # Interactive dashboard (preview)
-├── run_project.ps1            # One-file Windows PowerShell launcher
-├── lessons/
-│   └── 01_first_analysis.py   # Start here; prints simple results
-├── retail/
-│   └── analysis.py            # Reusable data-cleaning and KPI functions
 ├── data/
-│   ├── sample/
-│   │   └── retail_sample.csv  # Synthetic practice transactions
-│   └── raw/                   # Real Excel goes here later
-├── scripts/
-│   └── load_to_sqlite.py      # Load cleaned data into a local database
-├── sql/
-│   └── 01_business_questions.sql
-├── tests/
-│   └── test_analysis.py
+│   ├── raw/
+│   └── processed/
 ├── docs/
-│   └── LEARNING_PATH.md
-└── requirements.txt
+│   ├── retail_dashboard.png
+│   ├── customer_segments.png
+│   └── business_insights.txt
+├── lessons/
+│   └── 02_real_retail_analysis.py
+├── README.md
+└── .gitignore
 ```
 
-## Set up on your Windows laptop (VS Code terminal / PowerShell)
+## How to Run
 
-Install [Python](https://www.python.org/downloads/) and [VS Code](https://code.visualstudio.com/), then extract this project ZIP and open its `retail-intelligence` folder in VS Code.
+Install the required libraries:
 
-**Easiest way: run the included PowerShell file** from the VS Code terminal, while in the project folder:
-
-```powershell
-.\run_project.ps1
+```bash
+pip install pandas numpy matplotlib openpyxl
 ```
 
-This sets up Python, installs packages, runs Lesson 1 and opens the interactive dashboard. Use `Ctrl+C` to stop the dashboard.
+Download the UCI Online Retail dataset:
 
-If your organisation's PowerShell policy blocks scripts, do not change security settings just for this project. Use the manual commands below instead.
+https://archive.ics.uci.edu/dataset/352/online+retail
 
-**Manual alternative:** Run these commands **from the project folder**:
+Place `Online Retail.xlsx` inside `data/raw/`.
 
-```powershell
-py -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe lessons\01_first_analysis.py
+Run the analysis from the project root:
+
+```bash
+python lessons/02_real_retail_analysis.py
 ```
 
-This uses your project's own Python environment and avoids having to change the PowerShell execution policy. If `py` is not recognised, try `python` instead of `py` in the first command.
+Generated reports and charts will be saved
+inside the project folders.
 
-For your dashboard:
+## Limitations
 
-```powershell
-.\.venv\Scripts\python.exe -m streamlit run app.py
-```
+- Transactions without CustomerID are excluded
+  from customer-level analysis.
+- RFM scores use approximate quintiles.
+- Customers with tied values may receive
+  different scores.
+- RFM segments are heuristic classifications.
+- December 2011 contains incomplete-month data.
+- Unusual transactions may influence results.
 
-For SQLite (Lesson 3):
+## Author
 
-```powershell
-.\.venv\Scripts\python.exe -m scripts.load_to_sqlite
-```
+Bogadhi Teja Prakash
 
-For tests:
+Data Analytics | Python | SQL | Data Visualization
 
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests -v
-```
-
-On macOS/Linux, use `python3 -m venv .venv` and `.venv/bin/python` instead of the Windows Python path.
-
-## Lesson 1: your first coding task
-
-Open `lessons/01_first_analysis.py` and read the comments before running it. It teaches:
-
-1. What a CSV file and a Pandas DataFrame are.
-2. How to inspect a dataset with `.head()`, `.shape` and `.columns`.
-3. How to calculate **line revenue = quantity × unit price**.
-4. Why cancellations and zero-price lines must be treated carefully.
-
-**Challenge:** Change the final line of the lesson to show 10 rows instead of 5. Then add a line that prints only transactions from the United Kingdom.
-
-### Important metric definitions
-
-For this starter, **gross completed-sales value** means positive-quantity, positive-price lines whose invoice number does not start with `C`. It excludes cancellation/return lines. It is **not net revenue, profit or audited sales**. Customer counts include only non-empty customer IDs, while sale totals include valid sales with unknown customer IDs.
-
-## What comes next
-
-| Lesson | Deliverable | Key skill |
-| --- | --- | --- |
-| 1 | Read practice transactions | Python, Pandas |
-| 2 | Clean genuine UK retail data | Missing values, returns, QA |
-| 3 | Answer questions in a SQLite database | SQL, joins, grouping |
-| 4 | Build Power BI sales dashboard | Data modelling, DAX |
-| 5 | Segment customers with RFM | Business analytics |
-| 6 | Test and automate the pipeline | Reproducibility, quality |
-| 7 | Publish on GitHub and deploy | Version control, Streamlit |
-
-See `docs/LEARNING_PATH.md` for interview-ready acceptance criteria and deployment steps. This repository is a starter, **not yet published or deployed**.
+[LinkedIn](https://www.linkedin.com/in/bogadhi-teja-prakash-8a44aa435/)

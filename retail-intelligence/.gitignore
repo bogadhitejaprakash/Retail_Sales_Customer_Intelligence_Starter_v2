@@ -11,3 +11,14 @@ data/processed/
 *.sqlite3
 .env
 .streamlit/secrets.toml
+# Python virtual environments
+.venv/
+.venv_old/
+venv/
+
+# Local editor settings
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
