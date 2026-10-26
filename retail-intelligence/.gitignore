@@ -1,24 +1,39 @@
+# Python virtual environments
+venv/
 .venv/
+.venv_old/
+
+# Python cache and testing
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.ipynb_checkpoints/
+
+# Environment variables and secrets
+.env
+.env.*
+.streamlit/secrets.toml
+
+# Editor settings
+.vscode/
+
+# Operating system files
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+*.tmp
+*.log
+
+# Raw datasets
 data/raw/*.xlsx
 data/raw/*.xls
 data/raw/*.csv
+
+# Generated data
 data/processed/
+
+# Local databases
 *.db
 *.sqlite3
-.env
-.streamlit/secrets.toml
-# Python virtual environments
-.venv/
-.venv_old/
-venv/
-
-# Local editor settings
-.vscode/
-
-# Python cache
-__pycache__/
-*.pyc
