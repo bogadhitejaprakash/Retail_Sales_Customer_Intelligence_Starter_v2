@@ -43,6 +43,22 @@ The goal is to answer important business questions:
 | Average Order Value | £533.17 |
 | Repeat Customer Rate | 65.58% |
 
+## 🌐 Live Interactive Dashboard
+
+Explore the Retail Sales & Customer Intelligence dashboard
+built using Python, Pandas and Streamlit.
+
+### 🚀 [Launch Live Dashboard](https://retailsalescustomerintelligencestarterv2-ggpmnhwprvysz6dbnr7wt.streamlit.app/)
+
+The application provides:
+- Sales revenue, orders, customers and average order value
+- Monthly sales trends
+- Revenue analysis by country
+- Top-performing products
+- Key business insights
+
+**Dataset:** UCI Online Retail (2010–2011).
+Historical data, not live sales.
 
 ## Interactive Power BI Dashboards
 
